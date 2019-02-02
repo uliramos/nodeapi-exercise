@@ -1,4 +1,4 @@
-## Implementation Notes
+## Node Tree Exercise - Implementation Notes
 
 This project contains the implementation for the node tree exercise.
 

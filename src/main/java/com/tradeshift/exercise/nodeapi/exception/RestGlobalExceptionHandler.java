@@ -1,4 +1,4 @@
-package com.tradeshift.exercise.nodeapi;
+package com.tradeshift.exercise.nodeapi.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

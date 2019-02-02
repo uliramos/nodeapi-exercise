@@ -1,8 +1,8 @@
 package com.tradeshift.exercise.nodeapi.service;
 
-import com.tradeshift.exercise.nodeapi.CannotSetParentOfRootException;
-import com.tradeshift.exercise.nodeapi.CircularTreeDependencyException;
-import com.tradeshift.exercise.nodeapi.TradeShiftNodeNotFoundException;
+import com.tradeshift.exercise.nodeapi.exception.CannotSetParentOfRootException;
+import com.tradeshift.exercise.nodeapi.exception.CircularTreeDependencyException;
+import com.tradeshift.exercise.nodeapi.exception.TradeShiftNodeNotFoundException;
 import com.tradeshift.exercise.nodeapi.dal.NodeDAO;
 import com.tradeshift.exercise.nodeapi.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;

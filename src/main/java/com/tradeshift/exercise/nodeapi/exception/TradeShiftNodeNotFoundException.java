@@ -1,4 +1,4 @@
-package com.tradeshift.exercise.nodeapi;
+package com.tradeshift.exercise.nodeapi.exception;
 
 public class TradeShiftNodeNotFoundException extends RuntimeException {
 

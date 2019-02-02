@@ -1,4 +1,4 @@
-package com.tradeshift.exercise.nodeapi;
+package com.tradeshift.exercise.nodeapi.exception;
 
 //@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class CannotSetParentOfRootException extends RuntimeException {
