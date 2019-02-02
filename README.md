@@ -10,6 +10,7 @@ Regarding load or stress testing mentioned in the exercise specification, one co
 
 Nonetheless, both API calls trigger one DB transaction each (1 per HTTP request) with fairly simple queries involved. This way I have tried to make the API performant by design.
 
+The API responses could potentially be enriched with meta-data (control messages, HATEOS data, etc), but they were kept simple for the purpose of the exercise.
 
 ## Node API Documentation
 
