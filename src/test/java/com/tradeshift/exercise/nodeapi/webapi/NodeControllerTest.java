@@ -51,7 +51,7 @@ public class NodeControllerTest {
         List<Node> expectedResponse = Arrays.asList(nodeChild1, nodeChild2);
 
         // when and then
-        MvcResult mvcResult = mvc.perform(get("/node/" + parentNode.getId() + "/children")
+        MvcResult mvcResult = mvc.perform(get("/nodes/" + parentNode.getId() + "/children")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn();
 
@@ -68,7 +68,7 @@ public class NodeControllerTest {
         List<Node> expectedResponse = Collections.emptyList();
 
         // when and then
-        MvcResult mvcResult = mvc.perform(get("/node/" + parentNode.getId() + "/children")
+        MvcResult mvcResult = mvc.perform(get("/nodes/" + parentNode.getId() + "/children")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn();
 
@@ -91,7 +91,7 @@ public class NodeControllerTest {
 
         // when
         // change nodeGrandChild parent to nodeChild
-        mvc.perform(put("/node/" + nodeGrandChild.getId() + "/parent")
+        mvc.perform(put("/nodes/" + nodeGrandChild.getId() + "/parent")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(nodeChild)))
                 .andDo(print());
@@ -118,7 +118,7 @@ public class NodeControllerTest {
 
         // when and then
         long nonExistingId = 55;
-        mvc.perform(put("/node/" + nonExistingId + "/parent")
+        mvc.perform(put("/nodes/" + nonExistingId + "/parent")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(nodeChild)))
                 .andExpect(status().isNotFound()).andReturn();
@@ -137,7 +137,7 @@ public class NodeControllerTest {
         nodeGrandChild = defaultNodeService.saveNode(nodeGrandChild);
 
         // when and then
-        mvc.perform(put("/node/" + rootNode.getId() + "/parent")
+        mvc.perform(put("/nodes/" + rootNode.getId() + "/parent")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(nodeChild)))
                 .andExpect(status().isBadRequest()).andReturn();
@@ -158,7 +158,7 @@ public class NodeControllerTest {
         // when and then
         Node nonExistingParent = nodeChild;
         nonExistingParent.setId(33L);
-        mvc.perform(put("/node/" + nodeGrandChild.getId() + "/parent")
+        mvc.perform(put("/nodes/" + nodeGrandChild.getId() + "/parent")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(nonExistingParent)))
                 .andExpect(status().isNotFound()).andReturn();
@@ -177,7 +177,7 @@ public class NodeControllerTest {
         defaultNodeService.saveNode(nodeGrandChild);
 
         // when and then
-        mvc.perform(put("/node/" + nodeChild.getId() + "/parent")
+        mvc.perform(put("/nodes/" + nodeChild.getId() + "/parent")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(nodeGrandChild)))
                 .andExpect(status().isBadRequest()).andReturn();

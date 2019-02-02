@@ -6,20 +6,22 @@ The chosen implementation makes use of an in-memory H2 database as a quick way t
 
 Also, the relational model selected is believed to be a good fit for the requirements presented.
 
-Regarding load or stress testing mentioned, one could write some JMeter (or similar) integration tests to actually fire a high level of requests at the API over HTTP and then collect some metrics. For this to be meaningfull, the presistence store should probably be moved to disk first.
+Regarding load or stress testing mentioned in the exercise specification, one could write some JMeter (or similar) integration tests to actually fire a high level of requests at the API over HTTP and then collect some metrics. For this to be meaningfull, the presistence store should probably be moved to disk first.
 
-Noneoftheless, both API calls trigger one DB transaction each (1 per HTTP request) with fairly simple queries involved. This way I have tried to make the API performant by design.
+Nonetheless, both API calls trigger one DB transaction each (1 per HTTP request) with fairly simple queries involved. This way I have tried to make the API performant by design.
 
 
 ## Node API Documentation
 
 ### Resource Information
 
-#### Node
+##### Base URL: http://localhost:9090/nodeapi
+
+#### Node - resource
 * id - long
-* parent - Node (resource)
-* root - (resource)
-* height - int
+* parent - Node 
+* root - Node
+* height - integer
 
 #### API Operations
 	GET: /nodes/[id]/children
